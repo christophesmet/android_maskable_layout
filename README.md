@@ -10,7 +10,7 @@ Simple **Drawables** are accepted, as wel as **AnimationDrawables** !
 
 ### Example
 =======================
-![](//Screencast.gif)
+![](/https://github.com/christophesmet/android_maskable_layout/blob/master/Screencast.gif)
 
 ### Usage
 =======================
