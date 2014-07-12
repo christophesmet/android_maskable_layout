@@ -30,4 +30,5 @@ This example masks his child element (Imageview) with the mask "animation_mask" 
 ```
 ### Building
 =======================
+Fork the repository and include the 'library' module and you are done :)
 AAR File coming to soon to maven central near you ;)
