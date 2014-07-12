@@ -10,8 +10,7 @@ Simple **Drawables** are accepted, as wel as **AnimationDrawables** !
 
 ### Example
 =======================
-![](/https://github.com/christophesmet/android_maskable_layout/blob/master/Screencast.gif)
-
+![](/https://raw.githubusercontent.com/christophesmet/android_maskable_layout/master/Screencast.gif)
 ### Usage
 =======================
 This example masks his child element (Imageview) with the mask "animation_mask" and sets the porterDuffXferMode to DST_IN
