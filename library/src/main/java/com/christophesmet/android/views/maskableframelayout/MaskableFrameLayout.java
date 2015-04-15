@@ -145,7 +145,7 @@ public class MaskableFrameLayout extends FrameLayout {
                 Bitmap mask = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(),
                         Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(mask);
-                drawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredWidth());
+                drawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
                 drawable.draw(canvas);
                 return mask;
             } else {
