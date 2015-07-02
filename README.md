@@ -35,3 +35,6 @@ This example masks his child element (Imageview) with the mask "animation_mask" 
 =======================
 Fork the repository and include the 'library' module and you are done :)
 AAR File coming to soon to maven central near you ;)
+
+Or use JitPack
+https://jitpack.io/#christophesmet/android_maskable_layout
