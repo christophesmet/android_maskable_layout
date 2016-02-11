@@ -22,5 +22,6 @@
             <enum name="SRC_OVER" value="16"/>
             <enum name="XOR" value="17"/>
         </attr>
+        <attr name="anti_aliasing" format="boolean"/>
     </declare-styleable>
 </resources>

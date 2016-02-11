@@ -1,15 +1,9 @@
 package com.christophesmet.android.views.maskableframelayout;
 
-import com.christophesmet.android.view.maskablelayout.R;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
@@ -22,6 +16,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
+
+import com.christophesmet.android.view.maskablelayout.R;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Created by Christophe on 12/07/2014.
@@ -58,6 +57,7 @@ public class MaskableFrameLayout extends FrameLayout {
     private Drawable mDrawableMask = null;
     @Nullable
     private Bitmap mFinalMask = null;
+    private boolean mAntiAliasing = false;
 
     //Drawing props
     private Paint mPaint = null;
@@ -83,7 +83,7 @@ public class MaskableFrameLayout extends FrameLayout {
         if (Build.VERSION.SDK_INT >= 11) {
             setLayerType(LAYER_TYPE_SOFTWARE, null); //Only works for software layers
         }
-        mPaint = createPaint();
+        mPaint = createPaint(false);
         Resources.Theme theme = context.getTheme();
         if (theme != null) {
             TypedArray a = theme.obtainStyledAttributes(
@@ -96,8 +96,13 @@ public class MaskableFrameLayout extends FrameLayout {
                 //Load the mode if specified in xml
                 mPorterDuffXferMode = getModeFromInteger(
                         a.getInteger(R.styleable.MaskableLayout_porterduffxfermode, 0));
-
                 initMask(mDrawableMask);
+                //Check antiAlias
+                if (a.getBoolean(R.styleable.MaskableLayout_anti_aliasing, false)) {
+                    //Recreate paint with anti aliasing enabled
+                    //This can take a performance hit.
+                    mPaint = createPaint(true);
+                }
             } finally {
                 if (a != null) {
                     a.recycle();
@@ -110,8 +115,9 @@ public class MaskableFrameLayout extends FrameLayout {
     }
 
     @NotNull
-    private Paint createPaint() {
+    private Paint createPaint(boolean antiAliasing) {
         Paint output = new Paint(Paint.ANTI_ALIAS_FLAG);
+        output.setAntiAlias(antiAliasing);
         output.setXfermode(mPorterDuffXferMode);
         return output;
     }
