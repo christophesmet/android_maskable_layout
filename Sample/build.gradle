@@ -18,8 +18,14 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://jitpack.io' }
+}
 dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':library')
+    //For release
+    compile 'com.github.christophesmet:android_maskable_layout:v1.0.0'
+    //For local development
+    //compile project(':library')
 }
