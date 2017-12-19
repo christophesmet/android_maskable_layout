@@ -1,18 +1,16 @@
 package com.christophesmet.android.views;
 
-import com.christophesmet.android.views.maskableframelayout.MaskableFrameLayout;
-
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.christophesmet.android.views.maskableframelayout.MaskableFrameLayout;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     private MaskableFrameLayout mMaskableFrameLayout;
     private Button mBtnAnimate;
@@ -21,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mMaskableFrameLayout = (MaskableFrameLayout) findViewById(R.id.frm_mask_animated);
+        mMaskableFrameLayout = findViewById(R.id.frm_mask_animated);
         mBtnAnimate = (Button) findViewById(R.id.btn_animate);
         mBtnAnimate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,12 +1,12 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "19.1"
+    compileSdkVersion 27
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 22
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -22,10 +22,10 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:27.0.2'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //For release
-    compile 'com.github.christophesmet:android_maskable_layout:v1.1.0'
+    //compile 'com.github.christophesmet:android_maskable_layout:v1.1.0'
     //For local development
-    //compile project(':library')
+    compile project(':library')
 }
