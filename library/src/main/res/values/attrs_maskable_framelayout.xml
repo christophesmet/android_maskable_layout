@@ -3,24 +3,24 @@
     <declare-styleable name="MaskableLayout">
         <attr name="mask" format="reference"/>
         <attr name="porterduffxfermode">
-            <enum name="ADD" value="0"/>
-            <enum name="CLEAR" value="1"/>
-            <enum name="DARKEN" value="2"/>
-            <enum name="DST" value="3"/>
-            <enum name="DST_ATOP" value="4"/>
-            <enum name="DST_IN" value="5"/>
-            <enum name="DST_OUT" value="6"/>
-            <enum name="DST_OVER" value="7"/>
-            <enum name="LIGHTEN" value="8"/>
-            <enum name="MULTIPLY" value="9"/>
-            <enum name="OVERLAY" value="10"/>
-            <enum name="SCREEN" value="11"/>
-            <enum name="SRC" value="12"/>
-            <enum name="SRC_ATOP" value="13"/>
-            <enum name="SRC_IN" value="14"/>
-            <enum name="SRC_OUT" value="15"/>
-            <enum name="SRC_OVER" value="16"/>
-            <enum name="XOR" value="17"/>
+            <enum name="CLEAR" value="0"/>
+            <enum name="SRC" value="1"/>
+            <enum name="DST" value="2"/>
+            <enum name="SRC_OVER" value="3"/>
+            <enum name="DST_OVER" value="4"/>
+            <enum name="SRC_IN" value="5"/>
+            <enum name="DST_IN" value="6"/>
+            <enum name="SRC_OUT" value="7"/>
+            <enum name="DST_OUT" value="8"/>
+            <enum name="SRC_ATOP" value="9"/>
+            <enum name="DST_ATOP" value="10"/>
+            <enum name="XOR" value="11"/>
+            <enum name="ADD" value="12"/>
+            <enum name="MULTIPLY" value="13"/>
+            <enum name="SCREEN" value="14"/>
+            <enum name="OVERLAY" value="15"/>
+            <enum name="DARKEN" value="16"/>
+            <enum name="LIGHTEN" value="17"/>
         </attr>
         <attr name="anti_aliasing" format="boolean"/>
     </declare-styleable>
