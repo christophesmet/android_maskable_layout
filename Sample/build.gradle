@@ -25,7 +25,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:27.0.2'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //For release
-    //compile 'com.github.christophesmet:android_maskable_layout:v1.1.0'
+    //compile 'com.github.christophesmet:android_maskable_layout:v1.2.0'
     //For local development
     compile project(':library')
 }

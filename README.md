@@ -42,7 +42,7 @@ Or use JitPack: https://jitpack.io/#christophesmet/android_maskable_layout
 repositories {
     maven { url 'https://jitpack.io' }
 }
-    compile 'com.github.christophesmet:android_maskable_layout:v1.1.0'
+    compile 'com.github.christophesmet:android_maskable_layout:v1.2.0'
 ```
 
 License
