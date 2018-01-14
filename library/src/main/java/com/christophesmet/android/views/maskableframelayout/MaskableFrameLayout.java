@@ -80,9 +80,7 @@ public class MaskableFrameLayout extends FrameLayout {
     private void construct(Context context, AttributeSet attrs) {
         mHandler = new Handler();
         setDrawingCacheEnabled(true);
-        if (Build.VERSION.SDK_INT >= 11) {
-            setLayerType(LAYER_TYPE_SOFTWARE, null); //Only works for software layers
-        }
+        setLayerType(LAYER_TYPE_SOFTWARE, null); //Only works for software layers
         mPaint = createPaint(false);
         Resources.Theme theme = context.getTheme();
         if (theme != null) {
