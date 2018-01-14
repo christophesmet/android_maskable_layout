@@ -57,7 +57,6 @@ public class MaskableFrameLayout extends FrameLayout {
     private Drawable mDrawableMask = null;
     @Nullable
     private Bitmap mFinalMask = null;
-    private boolean mAntiAliasing = false;
 
     //Drawing props
     private Paint mPaint = null;
