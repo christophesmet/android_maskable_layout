@@ -31,25 +31,6 @@ public class MaskableFrameLayout extends FrameLayout {
     //Constants
     private static final String TAG = "MaskableFrameLayout";
 
-    private static final int MODE_ADD = 0;
-    private static final int MODE_CLEAR = 1;
-    private static final int MODE_DARKEN = 2;
-    private static final int MODE_DST = 3;
-    private static final int MODE_DST_ATOP = 4;
-    private static final int MODE_DST_IN = 5;
-    private static final int MODE_DST_OUT = 6;
-    private static final int MODE_DST_OVER = 7;
-    private static final int MODE_LIGHTEN = 8;
-    private static final int MODE_MULTIPLY = 9;
-    private static final int MODE_OVERLAY = 10;
-    private static final int MODE_SCREEN = 11;
-    private static final int MODE_SRC = 12;
-    private static final int MODE_SRC_ATOP = 13;
-    private static final int MODE_SRC_IN = 14;
-    private static final int MODE_SRC_OUT = 15;
-    private static final int MODE_SRC_OVER = 16;
-    private static final int MODE_XOR = 17;
-
     private Handler mHandler;
 
     //Mask props
@@ -276,72 +257,32 @@ public class MaskableFrameLayout extends FrameLayout {
 
     //Utils
     private PorterDuffXfermode getModeFromInteger(int index) {
-        PorterDuff.Mode mode = null;
-        switch (index) {
-            case MODE_ADD:
-                if (Build.VERSION.SDK_INT >= 11) {
-                    mode = PorterDuff.Mode.ADD;
-                } else {
-                    log("MODE_ADD is not supported on api lvl " + Build.VERSION.SDK_INT);
-                }
-            case MODE_CLEAR:
-                mode = PorterDuff.Mode.CLEAR;
-                break;
-            case MODE_DARKEN:
-                mode = PorterDuff.Mode.DARKEN;
-                break;
-            case MODE_DST:
-                mode = PorterDuff.Mode.DST;
-                break;
-            case MODE_DST_ATOP:
-                mode = PorterDuff.Mode.DST_ATOP;
-                break;
-            case MODE_DST_IN:
-                mode = PorterDuff.Mode.DST_IN;
-                break;
-            case MODE_DST_OUT:
-                mode = PorterDuff.Mode.DST_OUT;
-                break;
-            case MODE_DST_OVER:
-                mode = PorterDuff.Mode.DST_OVER;
-                break;
-            case MODE_LIGHTEN:
-                mode = PorterDuff.Mode.LIGHTEN;
-                break;
-            case MODE_MULTIPLY:
-                mode = PorterDuff.Mode.MULTIPLY;
-                break;
-            case MODE_OVERLAY:
-                if (Build.VERSION.SDK_INT >= 11) {
-                    mode = PorterDuff.Mode.OVERLAY;
-                } else {
-                    log("MODE_OVERLAY is not supported on api lvl " + Build.VERSION.SDK_INT);
-                }
-            case MODE_SCREEN:
-                mode = PorterDuff.Mode.SCREEN;
-                break;
-            case MODE_SRC:
-                mode = PorterDuff.Mode.SRC;
-                break;
-            case MODE_SRC_ATOP:
-                mode = PorterDuff.Mode.SRC_ATOP;
-                break;
-            case MODE_SRC_IN:
-                mode = PorterDuff.Mode.SRC_IN;
-                break;
-            case MODE_SRC_OUT:
-                mode = PorterDuff.Mode.SRC_OUT;
-                break;
-            case MODE_SRC_OVER:
-                mode = PorterDuff.Mode.SRC_OVER;
-                break;
-            case MODE_XOR:
-                mode = PorterDuff.Mode.XOR;
-                break;
-            default:
-                mode = PorterDuff.Mode.DST_IN;
-        }
+        PorterDuff.Mode mode = intToMode(index);
         log("Mode is " + mode.toString());
         return new PorterDuffXfermode(mode);
+    }
+
+    public static PorterDuff.Mode intToMode(int val) {
+        switch (val) {
+            default:
+            case  0: return PorterDuff.Mode.CLEAR;
+            case  1: return PorterDuff.Mode.SRC;
+            case  2: return PorterDuff.Mode.DST;
+            case  3: return PorterDuff.Mode.SRC_OVER;
+            case  4: return PorterDuff.Mode.DST_OVER;
+            case  5: return PorterDuff.Mode.SRC_IN;
+            case  6: return PorterDuff.Mode.DST_IN;
+            case  7: return PorterDuff.Mode.SRC_OUT;
+            case  8: return PorterDuff.Mode.DST_OUT;
+            case  9: return PorterDuff.Mode.SRC_ATOP;
+            case 10: return PorterDuff.Mode.DST_ATOP;
+            case 11: return PorterDuff.Mode.XOR;
+            case 12: return PorterDuff.Mode.ADD;
+            case 13: return PorterDuff.Mode.MULTIPLY;
+            case 14: return PorterDuff.Mode.SCREEN;
+            case 15: return PorterDuff.Mode.OVERLAY;
+            case 16: return PorterDuff.Mode.DARKEN;
+            case 17: return PorterDuff.Mode.LIGHTEN;
+        }
     }
 }
