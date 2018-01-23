@@ -23,5 +23,7 @@
             <enum name="XOR" value="17"/>
         </attr>
         <attr name="anti_aliasing" format="boolean"/>
+        <attr name="maskWidth" format="dimension"/>
+        <attr name="maskHeight" format="dimension"/>
     </declare-styleable>
 </resources>
