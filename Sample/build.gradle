@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -20,12 +20,13 @@ android {
 
 repositories {
     maven { url 'https://jitpack.io' }
+    google()
 }
 dependencies {
-    compile 'com.android.support:appcompat-v7:27.0.2'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     //For release
     //compile 'com.github.christophesmet:android_maskable_layout:v1.2.0'
     //For local development
-    compile project(':library')
+    implementation project(':library')
 }
