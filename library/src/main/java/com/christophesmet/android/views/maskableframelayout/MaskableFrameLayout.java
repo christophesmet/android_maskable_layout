@@ -176,6 +176,10 @@ public class MaskableFrameLayout extends FrameLayout {
         invalidate();
     }
 
+    public void setPorterDuffXferMode(PorterDuff.Mode mode) {
+        this.mPorterDuffXferMode = new PorterDuffXfermode(mode);
+    }
+
     //Once the size has changed we need to remake the mask.
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
