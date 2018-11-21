@@ -12,6 +12,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
@@ -122,7 +123,8 @@ public class MaskableFrameLayout extends FrameLayout {
     //Mask functions
     @Nullable
     private Drawable loadMask(@NotNull TypedArray a) {
-        return a.getDrawable(R.styleable.MaskableLayout_mask);
+        final int drawableResId = a.getResourceId(R.styleable.MaskableLayout_mask, -1);
+        return  AppCompatResources.getDrawable(getContext(), drawableResId);
     }
 
     private void initMask(@Nullable Drawable input) {
