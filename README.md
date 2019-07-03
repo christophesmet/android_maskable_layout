@@ -6,7 +6,7 @@
 
 The **Maskable Layout** is a simple **framelayout** that allows you to easily **mask** views and viewgroups. 
 You can also execute other porterduffxfermodes. 
-Simple **Drawables** are accepted, as wel as **AnimationDrawables** !
+Simple **Drawables** are accepted, as well as **AnimationDrawables** !
 
 ### Example
 =======================
