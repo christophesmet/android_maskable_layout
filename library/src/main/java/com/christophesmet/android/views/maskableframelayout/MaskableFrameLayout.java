@@ -123,7 +123,10 @@ public class MaskableFrameLayout extends FrameLayout {
     @Nullable
     private Drawable loadMask(@NonNull TypedArray a) {
         final int drawableResId = a.getResourceId(R.styleable.MaskableLayout_mask, -1);
-        return  AppCompatResources.getDrawable(getContext(), drawableResId);
+        if (drawableResId == -1) {
+            return null;
+        }
+        return AppCompatResources.getDrawable(getContext(), drawableResId);
     }
 
     private void initMask(@Nullable Drawable input) {
