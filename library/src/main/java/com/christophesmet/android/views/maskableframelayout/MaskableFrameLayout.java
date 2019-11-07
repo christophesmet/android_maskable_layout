@@ -12,6 +12,8 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -19,9 +21,6 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
 import com.christophesmet.android.view.maskablelayout.R;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Created by Christophe on 12/07/2014.
@@ -112,7 +111,7 @@ public class MaskableFrameLayout extends FrameLayout {
         registerMeasure();
     }
 
-    @NotNull
+    @NonNull
     private Paint createPaint(boolean antiAliasing) {
         Paint output = new Paint(Paint.ANTI_ALIAS_FLAG);
         output.setAntiAlias(antiAliasing);
@@ -122,7 +121,7 @@ public class MaskableFrameLayout extends FrameLayout {
 
     //Mask functions
     @Nullable
-    private Drawable loadMask(@NotNull TypedArray a) {
+    private Drawable loadMask(@NonNull TypedArray a) {
         final int drawableResId = a.getResourceId(R.styleable.MaskableLayout_mask, -1);
         return  AppCompatResources.getDrawable(getContext(), drawableResId);
     }
@@ -240,7 +239,7 @@ public class MaskableFrameLayout extends FrameLayout {
     }
 
     //Logging
-    private void log(@NotNull String message) {
+    private void log(@NonNull String message) {
         Log.d(TAG, message);
     }
 
