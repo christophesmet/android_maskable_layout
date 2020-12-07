@@ -62,6 +62,9 @@ public class MaskableFrameLayout extends FrameLayout {
     private Paint mPaint = null;
     private PorterDuffXfermode mPorterDuffXferMode = null;
 
+    private int maskWidth;
+    private int maskHeight;
+
     public MaskableFrameLayout(Context context) {
         super(context);
     }
@@ -100,12 +103,15 @@ public class MaskableFrameLayout extends FrameLayout {
                     //This can take a performance hit.
                     mPaint = createPaint(true);
                 }
+                maskWidth = a.getDimensionPixelSize(R.styleable.MaskableLayout_maskWidth, -1);
+                maskHeight = a.getDimensionPixelSize(R.styleable.MaskableLayout_maskHeight, -1);
             } finally {
                 if (a != null) {
                     a.recycle();
                 }
             }
-        } else {
+        }
+        else {
             log("Couldn't load theme, mask in xml won't be loaded.");
         }
         registerMeasure();
@@ -152,7 +158,10 @@ public class MaskableFrameLayout extends FrameLayout {
                 Bitmap mask = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(),
                         Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(mask);
-                drawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+                if (maskWidth == -1 || maskHeight == -1)
+                    drawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+                else
+                    setCustomBoundsToDrawable(drawable);
                 drawable.draw(canvas);
                 return mask;
             } else {
@@ -163,6 +172,11 @@ public class MaskableFrameLayout extends FrameLayout {
             log("No bitmap mask loaded, view will NOT be masked !");
         }
         return null;
+    }
+
+    private void setCustomBoundsToDrawable(Drawable d) {
+        d.setBounds((getMeasuredWidth()/2)-(maskWidth/2),(getMeasuredHeight()/2)-(maskHeight/2),(getMeasuredWidth()/2)-(maskWidth/2)+maskWidth,(getMeasuredHeight()/2)-
+                (maskHeight/2)+maskHeight);
     }
 
     public void setMask(int drawableRes) {
