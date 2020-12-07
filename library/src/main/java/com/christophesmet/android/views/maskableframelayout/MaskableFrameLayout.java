@@ -288,7 +288,9 @@ public class MaskableFrameLayout extends FrameLayout {
                     mode = PorterDuff.Mode.ADD;
                 } else {
                     log("MODE_ADD is not supported on api lvl " + Build.VERSION.SDK_INT);
+                    mode = PorterDuff.Mode.DST_IN;
                 }
+                break;
             case MODE_CLEAR:
                 mode = PorterDuff.Mode.CLEAR;
                 break;
@@ -321,7 +323,9 @@ public class MaskableFrameLayout extends FrameLayout {
                     mode = PorterDuff.Mode.OVERLAY;
                 } else {
                     log("MODE_OVERLAY is not supported on api lvl " + Build.VERSION.SDK_INT);
+                    mode = PorterDuff.Mode.DST_IN;
                 }
+                break;
             case MODE_SCREEN:
                 mode = PorterDuff.Mode.SCREEN;
                 break;
