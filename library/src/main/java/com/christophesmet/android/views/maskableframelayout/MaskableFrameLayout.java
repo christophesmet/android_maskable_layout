@@ -92,7 +92,7 @@ public class MaskableFrameLayout extends FrameLayout {
                 initMask(loadMask(a));
                 //Load the mode if specified in xml
                 mPorterDuffXferMode = getModeFromInteger(
-                        a.getInteger(R.styleable.MaskableLayout_porterduffxfermode, 0));
+                        a.getInt(R.styleable.MaskableLayout_porterduffxfermode, 0));
                 initMask(mDrawableMask);
                 //Check antiAlias
                 if (a.getBoolean(R.styleable.MaskableLayout_anti_aliasing, false)) {
